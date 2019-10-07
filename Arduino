@@ -1,0 +1,65 @@
+ #include <Ultrasonic.h>
+
+/* How to use the HC-SR04 Ultrasonic Sensor with Arduino 
+   Dev: Michalis Vasilakis // Date: 23/7/2015 // www.ardumotive.com */
+
+//Define pins ultrasonic(trig,echo)
+Ultrasonic ultrasonic(A0,A1);
+
+//Variables
+int led = 7; 
+int leds = 12;
+int distance;
+const int buzzer = 9; //buzzer to arduino pin 9
+
+void setup() {
+  
+  pinMode(led, OUTPUT);
+  pinMode(leds, OUTPUT);  
+  pinMode(buzzer, OUTPUT); // Set buzzer - pin 9 as an output
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  distance = ultrasonic.Ranging(CM); //Use 'CM' for centimeters or 'INC' for inches
+  //Print distance...
+  Serial.print("Object found at: ");
+  Serial.print(distance);
+  if(distance<15)
+  {
+    
+    tone(buzzer, 1000); // Send 1KHz sound signal...
+    digitalWrite(led, HIGH);
+    digitalWrite(leds, HIGH);
+    delay(50);
+    digitalWrite(led, LOW);
+    digitalWrite(leds, LOW);
+    delay(50);
+    noTone(buzzer);     // Stop sound... 
+    delay(10); 
+
+  }
+  Serial.println("cm");
+  //every 1sec. 
+  delay(1000);
+}
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+ 
+         // ...for 1sec
+  
