@@ -1,7 +1,6 @@
  #include <Ultrasonic.h>
 
-/* How to use the HC-SR04 Ultrasonic Sensor with Arduino 
-   Dev: Michalis Vasilakis // Date: 23/7/2015 // www.ardumotive.com */
+/* Arduino uno*/
 
 //Define pins ultrasonic(trig,echo)
 Ultrasonic ultrasonic(A0,A1);
